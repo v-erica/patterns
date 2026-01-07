@@ -23,6 +23,14 @@ export function sumToN(n) {
  */
 export function factorial(n) {
   // TODO
+  if (typeof n !== "number") return NaN;
+  if (n < 0) return undefined;
+
+  let factorial = 1;
+  for (let i = 1; i <= n; i++) {
+    factorial *= i;
+  }
+  return factorial;
 }
 
 /**
@@ -33,6 +41,13 @@ export function factorial(n) {
  */
 export function buildNArray(n) {
   // TODO
+  if (typeof n !== "number") return null;
+
+  const arrN = [];
+  for (let i = 1; i <= n; i++) {
+    arrN.push(i);
+  }
+  return arrN;
 }
 
 /**
@@ -41,6 +56,15 @@ export function buildNArray(n) {
  */
 export function getLongestString(strings) {
   // TODO
+  const longestString = strings.reduce((longStr, current) => {
+    if (current.length > longStr.length) {
+      return current;
+    } else {
+      return longStr;
+    }
+  }, strings[0]);
+
+  return longestString;
 }
 
 /**
@@ -49,6 +73,14 @@ export function getLongestString(strings) {
  */
 export function countPresent(attendance) {
   // TODO
+  let present = 0;
+
+  for (let i = 0; i < attendance.length; i++) {
+    if (attendance[i] === true) {
+      present += 1;
+    }
+  }
+  return present;
 }
 
 /**
@@ -63,4 +95,26 @@ export function countPresent(attendance) {
  */
 export function complementDNA(dna) {
   // TODO
+  if (typeof dna !== "string") return null;
+  let complDna = [];
+
+  for (let i = 0; i < dna.length; i++) {
+    if (dna[i] === "A") {
+      complDna.push("T");
+      continue;
+    }
+    if (dna[i] === "T") {
+      complDna.push("A");
+      continue;
+    }
+    if (dna[i] === "C") {
+      complDna.push("G");
+      continue;
+    }
+    if (dna[i] === "G") {
+      complDna.push("C");
+      continue;
+    }
+  }
+  return complDna.join("");
 }
