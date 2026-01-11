@@ -38,17 +38,25 @@ export function makeBoard(rows, cols) {
 export function makeTriangle(size) {
   // TODO
   if (typeof size !== "number") return null;
+  // learned shorthand for if to omit {}
   if (size <= 0) return [];
 
   const triangleArr = [];
-  for (let i = 1; i < size; i++) {
+  // creates the triangle array
+
+  for (let i = 1; i <= size; i++) {
+    // start loop at 1 (per instructions) and go up by 1 until we get to input 'size'
     const sideRows = [];
+    // creates each inner array with the "-"s
 
     for (let j = 0; j < i; j++) {
       sideRows.push("-");
+      // .push() is a method that pops items into the end of an array
+      // this is essentially pushing a "-" for 0 through (size - 1)
     }
 
     triangleArr.push(sideRows);
+    // only push the row array after it's finished looping to add "-"
   }
 
   return triangleArr;
@@ -62,4 +70,21 @@ export function makeTriangle(size) {
  */
 export function countLetter(words, letter) {
   // TODO
+
+  if (typeof letter !== "string") return 0;
+
+  let count = 0;
+  // declare variable outside of the loop so we're not resetting it each iteration
+
+  for (const word of words) {
+    // 'word' variable is being declared for every item in 'words' array, no need to do it again or it'll reset the variable
+    for (const char of word) {
+      if (char === letter) {
+        // might as well just compare each character 'char' to the input 'letter'
+        count += 1;
+      }
+    }
+  }
+  return count;
+  // return final value outside of the loop so we don't interrupt loop
 }

@@ -57,14 +57,22 @@ export function buildNArray(n) {
 export function getLongestString(strings) {
   // TODO
   const longestString = strings.reduce((longStr, current) => {
+    // This is basically saying we're making a variable called 'longestString'
+    // We're reducing it from an array called 'strings'
+    // 'longStr' is our accumulator variable and 'current' is the index we're currently on in the 'strings' array
     if (current.length > longStr.length) {
+      // if the length of the 'current' index is longer than the length of the 'longStr' variable
       return current;
+      // then return the 'current' variable
     } else {
       return longStr;
+      // if not, then return the 'longStr' variable instead
     }
   }, strings[0]);
+  // this will default to [0] anyway, so this isn't totally necessary for this one.
 
   return longestString;
+  // returns the string because reduce doesn't return the full arrary
 }
 
 /**
@@ -76,11 +84,14 @@ export function countPresent(attendance) {
   let present = 0;
 
   for (let i = 0; i < attendance.length; i++) {
+    // starting at the first student, ending with the last, going one by one)
     if (attendance[i] === true) {
+      // if a student at the current index's presence is true then add one to the number of people present
       present += 1;
     }
   }
   return present;
+  // returning the total number of students present
 }
 
 /**

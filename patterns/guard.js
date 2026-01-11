@@ -7,8 +7,10 @@
 export function multiply(num1, num2) {
   if (typeof num1 !== "number" || typeof num2 !== "number") {
     return NaN;
+    // testing for failure first
   }
   return num1 * num2;
+  // make sure to do the return at the end
 }
 
 /**
