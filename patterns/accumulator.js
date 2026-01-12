@@ -56,20 +56,22 @@ export function buildNArray(n) {
  */
 export function getLongestString(strings) {
   // TODO
+  if (strings.length === 0) return "";
+
   const longestString = strings.reduce((longStr, current) => {
     // This is basically saying we're making a variable called 'longestString'
     // We're reducing it from an array called 'strings'
-    // 'longStr' is our accumulator variable and 'current' is the index we're currently on in the 'strings' array
-    if (current.length > longStr.length) {
-      // if the length of the 'current' index is longer than the length of the 'longStr' variable
-      return current;
-      // then return the 'current' variable
-    } else {
+    // 'longStr' is our accumulator variable and 'current' is the string we're currently on in the 'strings' array
+    if (current.length < longStr.length) {
+      // if the length of the 'current' string is shorter than the length of the 'longStr' variable
       return longStr;
-      // if not, then return the 'longStr' variable instead
+      // then return the 'longStr' variable
+    } else {
+      return current;
+      // if not, then return the 'current' variable instead
     }
   }, strings[0]);
-  // this will default to [0] anyway, so this isn't totally necessary for this one.
+  // this will default to [0] if not specified, so this isn't totally necessary for this one.
 
   return longestString;
   // returns the string because reduce doesn't return the full arrary
